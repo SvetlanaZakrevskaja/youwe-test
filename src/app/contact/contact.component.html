@@ -1,0 +1,66 @@
+<section class="contact">
+
+  <h2 class="contact__h2">Contact pagina</h2>
+
+  <p class="contact__p">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis, magna nec efficitur tempor, dui eros fringilla tellus, vitae consequat augue dolor at mauris. Nunc tempor rutrum dolor, sit amet scelerisque lacus feugiat non. Maecenas a tincidunt justo, ac blandit arcu. Sed nec congue ex. Nullam pulvinar libero eu dolor congue commodo. Nam sed pharetra orci. Nunc ultrices sit amet magna non vestibulum. Morbi ut dignissim quam. Etiam eget pellentesque nisi.</p>
+
+  <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="contact-form__wrapper">
+      <label class="contact-form__label" for="name">Naam:</label>
+      <input type="text" id="name" class="contact-form__input"
+             formControlName="name"
+             [ngClass]="{ 'invalid': submitted && f.name.errors }" />
+
+      <div *ngIf="submitted && f.name.errors" class="contact-form__error">
+        <p *ngIf="f.name.errors.required">Name is required.</p>
+        <p *ngIf="f.name.errors.minlength">Name must be at least 4 characters long.</p>
+      </div>
+
+    </div>
+
+    <div class="contact-form__wrapper">
+      <label class="contact-form__label" for="email">Email:</label>
+      <input type="text" id="email" class="contact-form__input"
+             formControlName="email"
+             [ngClass]="{ 'invalid': submitted && f.email.errors }" />
+
+      <div *ngIf="submitted && f.email.errors" class="contact-form__error">
+        <p *ngIf="f.email.errors.required">Email is required.</p>
+        <p *ngIf="f.email.errors.email">Email isn't correct.</p>
+      </div>
+      
+    </div>
+
+    <div class="contact-form__wrapper">
+      <label class="contact-form__label" for="subject">Onderwerp:</label>
+      <input type="text" id="subject" class="contact-form__input"
+             formControlName="subject"
+             [ngClass]="{ 'invalid': submitted && f.subject.errors }"/>
+
+      <div *ngIf="submitted && f.subject.errors" class="contact-form__error">
+        <p *ngIf="f.subject.errors.required">Subject is required.</p>
+        <p *ngIf="f.subject.errors.maxlength">Subject can be up to 150 characters.</p>
+      </div>
+      
+    </div>
+
+    <div class="contact-form__wrapper">
+      <label class="contact-form__label" for="text">Bericht:</label>
+      <textarea id="text" class="contact-form__textarea"
+                formControlName="text"
+                [ngClass]="{ 'invalid': submitted && f.text.errors }"></textarea>
+
+      <div *ngIf="submitted && f.text.errors" class="contact-form__error">
+        <p *ngIf="f.text.errors.required">Text field is required.</p>
+        <p *ngIf="f.text.errors.maxlength">Text can be up to 250 characters.</p>
+      </div>
+    </div>
+
+    <div class="contact-form__wrapper">
+      <button type="submit" class="btn contact-form__btn">Sturen</button>
+    </div>
+  </form>
+
+</section>
+
+

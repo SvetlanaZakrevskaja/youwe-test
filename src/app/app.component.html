@@ -1,0 +1,95 @@
+<header class="header">
+    <div class="main-wrap">
+
+        <div class="top-header">
+
+            <nav class="top-nav">
+                <ul class="top-nav__list">
+                    <li routerLinkActive="active" class="top-nav__list-item"
+                        [routerLinkActiveOptions]="{exact: true}">
+                        <a routerLink="/">Groepen</a>
+                    </li>
+
+                    <li routerLinkActive="active" class="top-nav__list-item">
+                        <a routerLink="/contact" class="top-nav__list-link">Contact</a>
+                    </li>
+                    <li routerLinkActive="active" class="top-nav__list-item">
+                        <a routerLink="#" class="top-nav__list-link">FAQ</a>
+                    </li>
+                    <li routerLinkActive="active" class="top-nav__list-item">
+                        <a routerLink="#" class="top-nav__list-link">Smoelenboek</a>
+                    </li>
+                    <li routerLinkActive="active" class="top-nav__list-item">
+                        <a routerLink="#" class="top-nav__list-link">Microblog</a>
+                    </li>
+                    <li routerLinkActive="active" class="top-nav__list-item">
+                        <a routerLink="#" class="top-nav__list-link">Over ons</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="top-icons">
+                <span class="top-icons__wrapper top-icons__menu">
+                    <span class="top-icons__menu-text">Menu</span>
+                </span>
+                <span class="top-icons__wrapper">
+                    <i class="top-icons__icon top-icons__icon--settings icon-settings"></i>
+                </span>
+                <span class="top-icons__wrapper">
+                    <i class="top-icons__icon top-icons__icon--notifications icon-bell">
+                      <span class="top-icons__notification">0</span>
+                    </i>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="logo">
+            <img class="logo__img" src="../assets/images/logo.jpg" alt="Logo" />
+            <div class="logo__text">
+                <p class="logo__text--p"><span class="bold">Cura</span>Nu</p>
+                <p class="logo__text--p slogan">Zorg en welzijn</p>
+            </div>
+            <p class="logo__p">Intranet</p>
+        </div>
+
+    </div>
+
+    <div class="header-bottom">
+
+        <div class="main-wrap">
+
+            <nav class="bottom-nav">
+                <ul class="bottom-nav__list">
+                    <li routerLinkActive="active" class="bottom-nav__list-item">
+                        <a routerLink="#" class="bottom-nav__list-link">Artikelen</a>
+                    </li>
+                    <li routerLinkActive="active" class="bottom-nav__list-item">
+                        <a routerLink="#" class="bottom-nav__list-link">Nieuws</a>
+                    </li>
+                    <li routerLinkActive="active" class="bottom-nav__list-item">
+                        <a routerLink="#" class="bottom-nav__list-link">Evenementen</a>
+                    </li>
+                    <li routerLinkActive="active" class="bottom-nav__list-item">
+                        <a routerLink="#" class="bottom-nav__list-link">Kwaliteitshandboek</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="search header-search">
+                <input class="search__input" type="text" />
+                <button class="search__submit icon-search" type="submit"></button>
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+<main class="main main-wrap clear">
+    <router-outlet></router-outlet>
+</main>
+
+<footer class="footer">
+    <p class="footer__p">&copy; All rights reserved.</p>
+</footer>

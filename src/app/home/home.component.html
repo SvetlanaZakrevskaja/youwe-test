@@ -1,0 +1,487 @@
+<div class="blocks-wrapper">
+
+    <div class="show-on-desktop-and-mobile">
+
+        <div class="column">
+
+            <section class="homepage-block accordion">
+
+                <div class="accordion__item" *ngFor="let item of accordionItems; let i = index">
+                    <h3 class="homepage-block__h3 accordion__h3"
+                        (click) = "current = i"
+                        [class.opened] = "i == current">
+                        {{ item.title }}</h3>
+                    <p class="accordion__p animated"
+                       [class.collapse]='current != i'
+                       [class.fadeOut] = "i != current"
+                       [class.fadeIn] = "i == current">
+                        {{ item.description }}</p>
+                    <div class="accordion__icons">
+                        <i class="accordion__right-icon icon-arrow-right"
+                           [class.icon-arrow-right] = "i != current"
+                           [class.icon-arrow-down] = "i == current"></i>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="homepage-block events">
+                <i class="homepage-block__main-icon icon-calendar"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Evenementen</h3>
+
+                <ul class="events__list content">
+
+                    <li class="events__list-item" *ngFor="let event of events">
+                        <span class="events__list-item--date">{{ event.date }}</span>
+                        <span>{{ event.description }}</span>
+                    </li>
+
+                </ul>
+                <p class="homepage-block__more">Meer evenementen <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block news">
+                <i class="homepage-block__main-icon icon-newspaper"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Nieuws</h3>
+
+                <ul class="news__list content">
+
+                    <li class="news__list-item clear" *ngFor="let item of news">
+                        <img class="news__list-item--img" src="{{ item.image }}"/>
+                        <p class="news__list-item--date">{{ item.date }}</p>
+                        <p class="news__list-item--text">{{ item.text }}</p>
+                        <p class="news__list-item--likes">
+                            <i class="homepage-block__like-icon news__list-item--likes-icon"></i>
+                            <span>{{ item.likes }}</span>
+                        </p>
+                    </li>
+
+                </ul>
+                <p class="homepage-block__more">Meer nieuws <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block closed">
+                <p class="homepage-block__closed">Widget toevoegen <i class="homepage-block__more-icon icon-add"></i></p>
+            </section>
+
+        </div>
+
+        <div class="column">
+
+            <section class="homepage-block companies">
+                <i class="homepage-block__main-icon icon-external-link"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Direct naar</h3>
+
+                <ul class="companies__list content">
+
+                    <li class="companies__list-item" *ngFor="let company of companies">
+                        <img src="{{ company.image }}" class="companies__list-item--image" />
+                        <span>{{ company.name }}</span>
+                    </li>
+
+                </ul>
+            </section>
+
+            <section class="homepage-block blogs">
+                <i class="homepage-block__main-icon icon-pencil"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Blogs</h3>
+
+                <div class="blogs__item content">
+                    <div class="blogs__author clear">
+                        <img src="../../assets/images/authors/1.png" class="blogs__author--image" />
+                        <p class="blogs__author--name-and-date">
+                            <span class="blogs__author--name">Jacob Cobijn</span>
+                            <span class="blogs__author--date">12/04/2016</span>
+                        </p>
+                        <p class="blogs__author--likes">
+                            <i class="homepage-block__like-icon blogs__author--likes-icon"></i>
+                            <span>0</span>
+                            <i class="homepage-block__comment-icon blogs__author--comments-icon"></i>
+                            <span>0</span>
+                        </p>
+                    </div>
+                    <div class="blogs__text">
+                        <p class="blogs__headline">Samenleving</p>
+                        <p class="blogs__p">Het hebben van een partner die positief in het leven staat, is mogelijk goed voor de….</p>
+                    </div>
+                </div>
+
+                <p class="homepage-block__more">Meer blogs <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block procedures">
+                <i class="homepage-block__main-icon icon-graph"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Kwaliteitshandboek</h3>
+
+                <ul class="procedures__list content">
+
+                    <li class="procedures__list-item" *ngFor="let procedure of procedures">
+                        <p class="procedures__list--name">{{ procedure.name }}</p>
+                        <p class="procedures__list--time"><span>{{ procedure.type }}</span> / <span>{{ procedure.date }}</span></p>
+                    </li>
+
+                </ul>
+
+                <p class="homepage-block__more">Naar kwaliteitshandboek <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block peilingen">
+                <i class="homepage-block__main-icon icon-graph"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Peilingen</h3>
+
+                <p class="peilingen__text">Er zijn geen peilingen beschikbaar.</p>
+            </section>
+
+            <section class="homepage-block links">
+                <i class="homepage-block__main-icon icon-external-link"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Mijn links</h3>
+
+                <ul class="links__list content">
+
+                    <li class="links__list-item" *ngFor="let link of links">
+                        <a href="{{ link.url }}" class="links__list--link">{{ link.text }}</a>
+                    </li>
+
+                </ul>
+            </section>
+
+        </div>
+
+        <div class="column">
+
+            <section class="homepage-block search">
+                <h3 class="homepage-block__h3 search__h3">Telefoonboek</h3>
+
+                <p class="search__p">Vind collega’s op naam, trefwoord, functie, etc.</p>
+
+                <div class="search--wrapper">
+                    <input class="search__input" type="text" />
+                    <button class="search__submit icon-search" type="submit"></button>
+                </div>
+            </section>
+
+            <section class="homepage-block microblog">
+                <i class="homepage-block__main-icon icon-pencil"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Microblog</h3>
+
+                <div class="content">
+
+                    <div class="post-form clear">
+                        <textarea class="post-form__textarea"></textarea>
+                        <p class="post-form__icons">
+                            <i class="post-form__icons-photo"></i>
+                            <i class="post-form__icons-link"></i>
+                        </p>
+                        <button type="submit" class="btn post-form__btn">Plaats</button>
+                    </div>
+
+                    <div class="post">
+                        <div class="post__author clear">
+                            <img src="../../assets/images/authors/2.png" class="blogs__author--image" />
+                            <p class="post__author--name-and-date">
+                                <span class="post__author--name">Ria de Vries</span>
+                                <span class="post__author--date">12/09/2016 - 11:10</span>
+                            </p>
+                            <p class="post__author--likes">
+                                <i class="homepage-block__like-icon post__author--likes-icon"></i>
+                                <span>0</span>
+                            </p>
+                        </div>
+                        <p class="post__text">Nieuwe campagne CuraNed gisteren van start gegaan</p>
+                        <img src="../../assets/images/posts/1.png" class="post__img" />
+                        <p class="post__reaction">Lees meer en reacties (<span>0</span>)</p>
+                    </div>
+
+                </div>
+
+                <p class="homepage-block__more">Toon meer <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block groups">
+                <i class="homepage-block__main-icon icon-groups"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Mijn groepen</h3>
+
+                <ul class="groups__list content">
+
+                    <li class="groups__list-item clear" *ngFor="let group of groups">
+                        <img src="{{ group.image }}" class="groups__list-item--image" />
+                        <span>{{ group.name }}</span>
+                    </li>
+
+                </ul>
+
+                <p class="homepage-block__more">Meer groepen <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+        </div>
+
+    </div>
+
+    <div class="show-on-tablet">
+
+        <div class="column">
+
+            <section class="homepage-block accordion">
+
+                <div class="accordion__item" *ngFor="let item of accordionItems; let i = index">
+                    <h3 class="homepage-block__h3 accordion__h3"
+                        (click) = "current = i"
+                        [class.opened] = "i == current">
+                        {{ item.title }}</h3>
+                    <p class="accordion__p animated"
+                       [class.collapse]='current != i'
+                       [class.fadeOut] = "i != current"
+                       [class.fadeIn] = "i == current">
+                        {{ item.description }}</p>
+                    <div class="accordion__icons">
+                        <i class="accordion__right-icon icon-arrow-right"
+                           [class.icon-arrow-right] = "i != current"
+                           [class.icon-arrow-down] = "i == current"></i>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="homepage-block events">
+                <i class="homepage-block__main-icon icon-calendar"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Evenementen</h3>
+
+                <ul class="events__list content">
+
+                    <li class="events__list-item" *ngFor="let event of events">
+                        <span class="events__list-item--date">{{ event.date }}</span>
+                        <span>{{ event.description }}</span>
+                    </li>
+
+                </ul>
+                <p class="homepage-block__more">Meer evenementen <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block news">
+                <i class="homepage-block__main-icon icon-newspaper"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Nieuws</h3>
+
+                <ul class="news__list content">
+
+                    <li class="news__list-item clear" *ngFor="let item of news">
+                        <img class="news__list-item--img" src="{{ item.image }}"/>
+                        <p class="news__list-item--date">{{ item.date }}</p>
+                        <p class="news__list-item--text">{{ item.text }}</p>
+                        <p class="news__list-item--likes">
+                            <i class="homepage-block__like-icon news__list-item--likes-icon"></i>
+                            <span>{{ item.likes }}</span>
+                        </p>
+                    </li>
+
+                </ul>
+                <p class="homepage-block__more">Meer nieuws <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block closed">
+                <p class="homepage-block__closed">Widget toevoegen <i class="homepage-block__more-icon icon-add"></i></p>
+            </section>
+
+            <section class="homepage-block companies">
+                <i class="homepage-block__main-icon icon-external-link"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Direct naar</h3>
+
+                <ul class="companies__list content">
+
+                    <li class="companies__list-item" *ngFor="let company of companies">
+                        <img src="{{ company.image }}" class="companies__list-item--image" />
+                        <span>{{ company.name }}</span>
+                    </li>
+
+                </ul>
+            </section>
+
+            <section class="homepage-block blogs">
+                <i class="homepage-block__main-icon icon-pencil"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Blogs</h3>
+
+                <div class="blogs__item content">
+                    <div class="blogs__author clear">
+                        <img src="../../assets/images/authors/1.png" class="blogs__author--image" />
+                        <p class="blogs__author--name-and-date">
+                            <span class="blogs__author--name">Jacob Cobijn</span>
+                            <span class="blogs__author--date">12/04/2016</span>
+                        </p>
+                        <p class="blogs__author--likes">
+                            <i class="homepage-block__like-icon blogs__author--likes-icon"></i>
+                            <span>0</span>
+                            <i class="homepage-block__comment-icon blogs__author--comments-icon"></i>
+                            <span>0</span>
+                        </p>
+                    </div>
+                    <div class="blogs__text">
+                        <p class="blogs__headline">Samenleving</p>
+                        <p class="blogs__p">Het hebben van een partner die positief in het leven staat, is mogelijk goed voor de….</p>
+                    </div>
+                </div>
+
+                <p class="homepage-block__more">Meer blogs <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block procedures">
+                <i class="homepage-block__main-icon icon-graph"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Kwaliteitshandboek</h3>
+
+                <ul class="procedures__list content">
+
+                    <li class="procedures__list-item" *ngFor="let procedure of procedures">
+                        <p class="procedures__list--name">{{ procedure.name }}</p>
+                        <p class="procedures__list--time"><span>{{ procedure.type }}</span> / <span>{{ procedure.date }}</span></p>
+                    </li>
+
+                </ul>
+
+                <p class="homepage-block__more">Naar kwaliteitshandboek <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+        </div>
+
+        <div class="column">
+
+            <section class="homepage-block search">
+                <h3 class="homepage-block__h3 search__h3">Telefoonboek</h3>
+
+                <p class="search__p">Vind collega’s op naam, trefwoord, functie, etc.</p>
+
+                <div class="search--wrapper">
+                    <input class="search__input" type="text" />
+                    <button class="search__submit icon-search" type="submit"></button>
+                </div>
+            </section>
+
+            <section class="homepage-block peilingen">
+                <i class="homepage-block__main-icon icon-graph"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Peilingen</h3>
+
+                <p class="peilingen__text">Er zijn geen peilingen beschikbaar.</p>
+            </section>
+
+            <section class="homepage-block links">
+                <i class="homepage-block__main-icon icon-external-link"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Mijn links</h3>
+
+                <ul class="links__list content">
+
+                    <li class="links__list-item" *ngFor="let link of links">
+                        <a href="{{ link.url }}" class="links__list--link">{{ link.text }}</a>
+                    </li>
+
+                </ul>
+            </section>
+
+            <section class="homepage-block microblog">
+                <i class="homepage-block__main-icon icon-pencil"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Microblog</h3>
+
+                <div class="content">
+
+                    <div class="post-form clear">
+                        <textarea class="post-form__textarea"></textarea>
+                        <p class="post-form__icons">
+                            <i class="post-form__icons-photo"></i>
+                            <i class="post-form__icons-link"></i>
+                        </p>
+                        <button type="submit" class="btn post-form__btn">Plaats</button>
+                    </div>
+
+                    <div class="post">
+                        <div class="post__author clear">
+                            <img src="../../assets/images/authors/2.png" class="blogs__author--image" />
+                            <p class="post__author--name-and-date">
+                                <span class="post__author--name">Ria de Vries</span>
+                                <span class="post__author--date">12/09/2016 - 11:10</span>
+                            </p>
+                            <p class="post__author--likes">
+                                <i class="homepage-block__like-icon post__author--likes-icon"></i>
+                                <span>0</span>
+                            </p>
+                        </div>
+                        <p class="post__text">Nieuwe campagne CuraNed gisteren van start gegaan</p>
+                        <img src="../../assets/images/posts/1.png" class="post__img" />
+                        <p class="post__reaction">Lees meer en reacties (<span>0</span>)</p>
+                    </div>
+
+                </div>
+
+                <p class="homepage-block__more">Toon meer <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+            <section class="homepage-block groups">
+                <i class="homepage-block__main-icon icon-groups"></i>
+                <i class="homepage-block__open-icon icon-arrow-down"></i>
+                <i class="homepage-block__close-icon icon-cross"></i>
+
+                <h3 class="homepage-block__h3">Mijn groepen</h3>
+
+                <ul class="groups__list content">
+
+                    <li class="groups__list-item clear" *ngFor="let group of groups">
+                        <img src="{{ group.image }}" class="groups__list-item--image" />
+                        <span>{{ group.name }}</span>
+                    </li>
+
+                </ul>
+
+                <p class="homepage-block__more">Meer groepen <i class="homepage-block__more-icon icon-arrow-right"></i></p>
+            </section>
+
+        </div>
+
+    </div>
+
+</div>

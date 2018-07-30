@@ -1,0 +1,536 @@
+@import "../sass/variables";
+@import "../sass/base";
+@import "../sass/mixins";
+@import "../sass/icomoon";
+@import "../sass/animation";
+
+.show-on-desktop-and-mobile, .show-on-tablet {
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 33%;
+  max-width: 380px;
+  margin-right: 20px;
+
+  @include breakpoint(t) {
+    flex: 50%;
+    max-width: 49%;
+    margin-right: 14px;
+  }
+  @include breakpoint(m) {
+    flex: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// For all blocks
+.homepage-block {
+  border: 1px solid $botticelli;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .content {
+    padding: 0 30px 10px 24px;
+  }
+
+  &__h3 {
+    padding-left: 68px;
+    color: $orange;
+    font-size: 18px;
+    line-height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include breakpoint(t) {
+      padding-left: 58px;
+    }
+
+  }
+
+  &__main-icon, &__close-icon {
+    background-color: $link-water;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__close-icon {
+    left: auto;
+    right: 0;
+  }
+
+  &__open-icon {
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    right: 50px;
+  }
+
+  &__more {
+    background-color: $grey-light;
+    line-height: 45px;
+    padding: 0 70px 0 15px;
+    position: relative;
+  }
+
+  &__more-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    background-color: $botticelli;
+  }
+
+  &__like-icon {
+    background: url("../../assets/images/heart.jpg") center no-repeat;
+    width: 23px;
+    height: 20px;
+  }
+
+  &__comment-icon {
+    background: url("../../assets/images/comment.jpg") center no-repeat;
+    width: 21px;
+    height: 19px;
+  }
+
+  &__closed {
+    background-color: $grey-light;
+    line-height: 45px;
+    padding: 0 70px 0 15px;
+    position: relative;
+    display: none;
+  }
+
+  &.closed {
+    .homepage-block__closed {
+      display: block;
+    }
+
+    > * {
+      display: none;
+    }
+  }
+  
+}
+
+// Accordion Block
+.accordion {
+
+  &__item {
+    position: relative;
+  }
+
+  &__item:last-child {
+    .accordion__h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__h3 {
+    padding-left: 16px;
+    background-color: $grey-light;
+    margin-bottom: 5px;
+  }
+
+  &__p {
+    padding: 10px 40px 50px 16px;
+    
+  }
+
+  &__icons {
+    background-color: $link-water;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__right-icon, &__down-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  
+  // Opened accordion
+  .accordion__p.collapse {
+    display: none;
+  }
+  .accordion__h3.opened {
+    background-color: $grey;
+  }
+
+}
+
+// Companies Block
+.companies {
+
+  &__list-item {
+    line-height: 72px;
+    border-bottom: 1px solid $botticelli;
+    font-weight: 700;
+    padding-left: 130px;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__list-item--image {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+}
+
+// Events Block
+.events {
+
+  .content {
+    padding-bottom: 6px;
+  }
+
+  &__list {
+    margin: 30px 0 5px;
+  }
+
+  &__list-item {
+    line-height: 55px;
+    border-bottom: 1px solid $botticelli;
+    font-weight: 700;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__list-item--date {
+    font-weight: 400;
+    margin-right: 20px;
+  }
+
+}
+
+// News Block
+.news {
+
+  .content {
+    padding-left: 12px;
+  }
+
+  &__list-item {
+    padding: 25px 0 28px 10px;
+    border-bottom: 1px solid $botticelli;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 15px;
+    }
+  }
+  
+  &__list-item--img {
+    float: left;
+    margin-right: 10px;
+  }
+
+  &__list-item--text {
+    margin-top: 15px;
+    font-weight: 700;
+  }
+
+  &__list-item--likes {
+    position: absolute;
+    top: 25px;
+    right: -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 65px;
+  }
+
+  &__list-item--likes-icon {
+    margin-right: 5px;
+  }
+
+}
+
+// Blogs Block
+.blogs {
+
+  &__item {
+    margin: 20px 0 35px 0;
+  }
+
+  &__author {
+    margin-bottom: 28px;
+    position: relative;
+  }
+
+  &__author--image {
+    float: left;
+    margin-right: 25px;
+  }
+
+  &__author--name, &__author--date {
+    display: block;
+  }
+
+  &__author--name {
+    font-weight: 700;
+  }
+
+  &__author--likes {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__author--likes-icon, &__author--comments-icon {
+    margin-right: 5px;
+    margin-left: 10px;
+  }
+
+  &__headline {
+    font-weight: 700;
+  }
+  
+}
+
+// Procedures Block
+.procedures {
+
+  &__list-item {
+    padding: 20px 0 24px;
+    border-bottom: 1px solid $botticelli;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 15px;
+    }
+  }
+
+  &__list--name {
+    font-weight: 700;
+  }
+
+  &__list--time {
+     font-style: italic;
+  }
+
+}
+
+// Peilingen Block
+.peilingen {
+
+  &__text {
+    padding: 50px 30px 45px 24px;
+  }
+
+}
+
+// Links Block
+.links {
+
+  &__list-item {
+    padding: 25px 0;
+    border-bottom: 1px solid $botticelli;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__list--link {
+    font-weight: 700;
+    color: $grey;
+  }
+  
+}
+
+// Groups Block
+.groups {
+
+  &__list-item {
+    padding: 20px 0;
+    border-bottom: 1px solid $botticelli;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__list-item--image {
+    margin-right: 30px;
+  }
+}
+
+// Microblog Block
+.post-form {
+  margin-bottom: 50px;
+
+  &__textarea {
+    margin-top: 35px;
+    margin-bottom: 14px;
+    border: 2px solid $botticelli;
+    height: 178px;
+    width: 100%;
+    outline: none;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: $grey;
+    resize: none;
+  }
+
+  &__icons {
+    float: left;
+    line-height: 30px;
+    padding-top: 8px;
+  }
+  
+  &__icons-photo, &__icons-link {
+    margin-left: 10px;
+    display: inline-block;
+  }
+
+  &__icons-photo {
+     background: $blue-light url("../../assets/images/camera.jpg") center no-repeat;
+     width: 25px;
+     height: 20px;
+  }
+
+  &__icons-link {
+    background: $blue-light url("../../assets/images/link.jpg") center no-repeat;
+    width: 21px;
+    height: 20px;
+  }
+
+  &__btn {
+    float: right;
+  }
+
+}
+.post {
+
+  &__author {
+    margin-bottom: 22px;
+    position: relative;
+  }
+
+  &__author--image {
+    float: left;
+    margin-right: 25px;
+  }
+
+  &__author--name, &__author--date {
+    display: block;
+  }
+
+  &__author--name {
+    font-weight: 700;
+  }
+
+  &__author--likes {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__author--likes-icon, &__author--comments-icon {
+    margin-right: 5px;
+    margin-left: 10px;
+  }
+
+  &__text {
+    margin-bottom: 18px;
+  }
+
+  &__img {
+    margin-bottom: 18px;
+  }
+
+  &__reaction {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+}
+
+// Search Block
+.search {
+  background: $blue-light url("../../assets/images/telephone.png") bottom right no-repeat;
+  color: $white;
+  padding: 8px 30px 35px 24px;
+
+  &__h3 {
+    color: $white;
+    padding-left: 0;
+  }
+
+  &__p {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  &--wrapper {
+    position: relative;
+  }
+
+  &__input {
+    border: 1px solid $link-water;
+    height: 45px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: $grey;
+    padding: 0 10px;
+    outline: none;
+  }
+
+  &__submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+    border: none;
+    outline: none;
+    color: $gull-gray;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+}
